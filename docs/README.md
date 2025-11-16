@@ -1,7 +1,7 @@
 # Master Documentation - Distributed Cache Management System
 
 **Version:** 1.0.0  
-**Last Updated:** 2024
+**Last Updated:** November 2025
 
 ---
 
@@ -20,6 +20,7 @@
 | **📚 Reference** | [reference/SWAGGER_DOCUMENTATION.md](reference/SWAGGER_DOCUMENTATION.md) | API documentation guide | 15 min |
 | **📚 Reference** | [reference/UI_DASHBOARD.md](reference/UI_DASHBOARD.md) | Web dashboard documentation | 10 min |
 | **📚 Reference** | [reference/FR_NFR_Document.md](reference/FR_NFR_Document.md) | Requirements specification | 45 min |
+| **🏗️ Architecture** | [architecture/SYSTEM_DESIGN.md](architecture/SYSTEM_DESIGN.md) | High-level system design with diagrams | 30 min |
 | **🔧 Maintenance** | [maintenance/CHANGELOG.md](maintenance/CHANGELOG.md) | Version history & changes | 10 min |
 | **🔧 Maintenance** | [maintenance/CODE_QUALITY_IMPROVEMENTS.md](maintenance/CODE_QUALITY_IMPROVEMENTS.md) | Code quality improvements | 15 min |
 | **🔧 Maintenance** | [maintenance/QUICK_FIXES.md](maintenance/QUICK_FIXES.md) | Critical fixes reference | 10 min |
@@ -234,6 +235,27 @@
 
 ---
 
+### 🏗️ Architecture
+
+#### [architecture/SYSTEM_DESIGN.md](architecture/SYSTEM_DESIGN.md)
+**Purpose:** High-level system design with comprehensive diagrams  
+**Audience:** Architects, developers, technical leads  
+**Contents:**
+- System overview and architecture
+- Component diagrams
+- Cache flow diagrams (hit/miss)
+- Cluster communication diagrams
+- Deployment architecture
+- Data flow diagrams
+- Sequence diagrams
+- Performance characteristics
+- Security architecture
+- Monitoring and observability
+
+**When to Read:** Understanding system architecture, designing integrations, onboarding new team members
+
+---
+
 ### 🔧 Maintenance
 
 #### [maintenance/CHANGELOG.md](maintenance/CHANGELOG.md)
@@ -315,6 +337,10 @@
 ### Use Case: "I want to understand the requirements"
 1. [reference/FR_NFR_Document.md](reference/FR_NFR_Document.md) - Complete requirements specification
 
+### Use Case: "I want to understand the system architecture"
+1. [architecture/SYSTEM_DESIGN.md](architecture/SYSTEM_DESIGN.md) - System design with diagrams
+2. [reference/FR_NFR_Document.md](reference/FR_NFR_Document.md) - Requirements and constraints
+
 ### Use Case: "I want to troubleshoot an issue"
 1. [../README.md](../README.md) - Troubleshooting section
 2. [production/PRODUCTION_DEPLOYMENT.md](production/PRODUCTION_DEPLOYMENT.md) - Production troubleshooting
@@ -327,11 +353,12 @@
 
 ## 📊 Documentation Statistics
 
-- **Total Documents:** 22
+- **Total Documents:** 23
 - **Getting Started:** 2 documents
 - **Development:** 3 documents
 - **Production:** 2 documents
 - **Reference:** 4 documents (including best practices)
+- **Architecture:** 1 document
 - **Maintenance:** 3 documents
 - **Testing:** 7 documents
 
@@ -352,6 +379,7 @@
 - [guides/LIBRARY_USAGE.md](guides/LIBRARY_USAGE.md) - Integration examples
 
 **Cluster Setup:**
+- [architecture/SYSTEM_DESIGN.md](architecture/SYSTEM_DESIGN.md) - Complete system design
 - [../README.md](../README.md) - Cluster setup section
 - [production/PRODUCTION_DEPLOYMENT.md](production/PRODUCTION_DEPLOYMENT.md) - Production cluster config
 - [reference/FR_NFR_Document.md](reference/FR_NFR_Document.md) - Cluster requirements
@@ -423,7 +451,7 @@
 
 ---
 
-**Last Updated:** 2024  
+**Last Updated:** November 2025  
 **Maintained By:** Development Team  
 **For Issues:** See individual document sections or project repository
 

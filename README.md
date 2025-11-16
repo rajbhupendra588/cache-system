@@ -39,6 +39,8 @@ The system consists of:
 4. **Metrics** - Micrometer integration for observability
 5. **Health Checks** - Custom health indicators
 
+> 🏗️ **System Design:** For detailed architecture diagrams and system design, see [`docs/architecture/SYSTEM_DESIGN.md`](docs/architecture/SYSTEM_DESIGN.md) - Comprehensive visual documentation with Mermaid diagrams.
+
 ## Quick Start
 
 ### For Developers Using This Cache
@@ -265,4 +267,3 @@ This is a custom implementation for internal use.
 ## Support
 
 For issues and questions, refer to the [docs/reference/FR_NFR_Document.md](docs/reference/FR_NFR_Document.md) for detailed specifications.
-

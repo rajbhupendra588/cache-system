@@ -346,7 +346,7 @@ graph TB
 ```markdown
 ---
 title: Document Title
-last_updated: 2024-01-15
+last_updated: 2025-11-16
 version: 1.0.0
 audience: developers
 difficulty: intermediate
@@ -457,6 +457,6 @@ estimated_time: 20 min
 
 ---
 
-**Last Updated:** 2024  
+**Last Updated:** November 2025  
 **Next Review:** After reorganization
 
