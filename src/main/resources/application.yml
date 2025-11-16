@@ -1,0 +1,122 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: distributed-cache-system
+  
+  cache:
+    enabled: false  # We're implementing our own cache
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+cache:
+  system:
+    # Cluster Configuration
+    cluster:
+      enabled: true
+      node-id: ${HOSTNAME:node-${random.value}}
+      discovery:
+        type: static  # static, multicast
+        static:
+          peers: localhost:8081,localhost:8082
+        multicast:
+          group: 230.0.0.1
+          port: 5432
+      heartbeat:
+        interval-ms: 5000
+        timeout-ms: 15000
+      communication:
+        port: 9090
+        async: true
+    
+    # Default Cache Configuration
+    default-ttl: PT1H
+    default-eviction-policy: LRU
+    default-max-entries: 10000
+    default-memory-cap-mb: 1024
+    
+    # Cache Configurations per cache name
+    caches:
+      issue:
+        ttl: PT30M
+        eviction-policy: LRU
+        max-entries: 50000
+        memory-cap-mb: 2048
+        replication-mode: INVALIDATE
+        persistence-mode: NONE
+      comments:
+        ttl: PT1H
+        eviction-policy: LRU
+        max-entries: 100000
+        memory-cap-mb: 1024
+        replication-mode: INVALIDATE
+        persistence-mode: NONE
+      customField:
+        ttl: PT2H
+        eviction-policy: LRU
+        max-entries: 20000
+        memory-cap-mb: 512
+        replication-mode: INVALIDATE
+        persistence-mode: NONE
+    
+    # Security configuration (override with environment variables in production)
+    security:
+      admin:
+        username: ${CACHE_ADMIN_USERNAME:admin}
+        password: ${CACHE_ADMIN_PASSWORD:admin}
+
+logging:
+  level:
+    com.cache: INFO
+    org.springframework: INFO
+    AUDIT: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/cache-system.log
+    max-size: 100MB
+    max-history: 30
+
+# SpringDoc OpenAPI (Swagger) configuration
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    tags-sorter: alpha
+    operations-sorter: alpha
+    try-it-out-enabled: true
+    filter: true
+
+# Resilience4j configuration
+resilience4j:
+  retry:
+    configs:
+      default:
+        maxAttempts: 3
+        waitDuration: 100
+        retryExceptions:
+          - java.io.IOException
+          - java.net.SocketTimeoutException
+  circuitbreaker:
+    configs:
+      default:
+        failureRateThreshold: 50
+        waitDurationInOpenState: 30s
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+

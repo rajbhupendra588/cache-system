@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cache Management Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>⚡ Cache System</h1>
+                <p class="subtitle">Distributed Cache Management</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-item active" data-view="dashboard">
+                    <span class="icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#caches" class="nav-item" data-view="caches">
+                    <span class="icon">🗂️</span>
+                    <span>Caches</span>
+                </a>
+                <a href="#cluster" class="nav-item" data-view="cluster">
+                    <span class="icon">🌐</span>
+                    <span>Cluster</span>
+                </a>
+                <a href="#metrics" class="nav-item" data-view="metrics">
+                    <span class="icon">📈</span>
+                    <span>Metrics</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="status-indicator">
+                    <span class="status-dot online"></span>
+                    <span>System Online</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard View -->
+            <div id="dashboard-view" class="view active">
+                <header class="view-header">
+                    <h2>Dashboard</h2>
+                    <button class="btn-refresh" onclick="refreshDashboard()">🔄 Refresh</button>
+                </header>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📦</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Total Caches</div>
+                            <div class="stat-value" id="total-caches">-</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💾</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Total Entries</div>
+                            <div class="stat-value" id="total-entries">-</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🎯</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Avg Hit Ratio</div>
+                            <div class="stat-value" id="avg-hit-ratio">-</div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⚡</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Memory Used</div>
+                            <div class="stat-value" id="total-memory">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cache-list-section">
+                    <h3>Cache Overview</h3>
+                    <div id="cache-list" class="cache-list"></div>
+                </div>
+            </div>
+
+            <!-- Caches View -->
+            <div id="caches-view" class="view">
+                <header class="view-header">
+                    <h2>Cache Browser</h2>
+                    <div class="header-actions">
+                        <select id="cache-selector" class="cache-selector">
+                            <option value="">Select a cache...</option>
+                        </select>
+                        <button class="btn-primary" onclick="loadCacheKeys()">🔍 Load Keys</button>
+                        <button class="btn-danger" onclick="clearSelectedCache()">🗑️ Clear Cache</button>
+                    </div>
+                </header>
+
+                <div class="cache-browser">
+                    <div class="cache-info-panel">
+                        <div id="cache-stats-panel" class="info-panel">
+                            <h3>Cache Statistics</h3>
+                            <div id="cache-stats-content" class="stats-content"></div>
+                        </div>
+                    </div>
+
+                    <div class="keys-panel">
+                        <div class="keys-header">
+                            <h3>Cache Keys</h3>
+                            <div class="search-box">
+                                <input type="text" id="key-search" placeholder="Search keys..." onkeyup="filterKeys()">
+                                <span class="search-icon">🔍</span>
+                            </div>
+                        </div>
+                        <div id="keys-list" class="keys-list"></div>
+                        <div id="keys-pagination" class="pagination"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cluster View -->
+            <div id="cluster-view" class="view">
+                <header class="view-header">
+                    <h2>Cluster Status</h2>
+                    <button class="btn-refresh" onclick="refreshCluster()">🔄 Refresh</button>
+                </header>
+                <div id="cluster-content" class="cluster-content"></div>
+            </div>
+
+            <!-- Metrics View -->
+            <div id="metrics-view" class="view">
+                <header class="view-header">
+                    <h2>Performance Metrics</h2>
+                    <button class="btn-refresh" onclick="refreshMetrics()">🔄 Refresh</button>
+                </header>
+                <div id="metrics-content" class="metrics-content"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for Key Details -->
+    <div id="key-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Cache Key Details</h3>
+                <span class="modal-close" onclick="closeKeyModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="key-details"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-danger" onclick="invalidateKey()">🗑️ Invalidate</button>
+                <button class="btn-secondary" onclick="closeKeyModal()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>
+
