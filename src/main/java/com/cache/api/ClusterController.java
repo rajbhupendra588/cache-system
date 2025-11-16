@@ -58,6 +58,15 @@ public class ClusterController {
         response.put("activePeers", clusterMembership.getActivePeers());
         response.put("knownPeers", clusterMembership.getKnownPeers());
         response.put("activePeerCount", clusterMembership.getActivePeers().size());
+        response.put("lastHeartbeatTimes", clusterMembership.getLastHeartbeatTimes());
+        response.put("consecutiveFailures", clusterMembership.getConsecutiveFailures());
+        
+        // Calculate health status
+        Map<String, Boolean> peerHealth = new HashMap<>();
+        for (String peer : clusterMembership.getKnownPeers()) {
+            peerHealth.put(peer, clusterMembership.isPeerHealthy(peer));
+        }
+        response.put("peerHealth", peerHealth);
         
         return ResponseEntity.ok(response);
     }

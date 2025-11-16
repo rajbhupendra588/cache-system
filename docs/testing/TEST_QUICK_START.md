@@ -11,13 +11,13 @@ mvn spring-boot:run
 ### 2. Run All Tests (in another terminal)
 
 ```bash
-./run-automation-tests.sh all
+./src/test/scripts/run-automation-tests.sh all
 ```
 
 ### 3. View Screenshots
 
 ```bash
-./run-automation-tests.sh screenshots
+./src/test/scripts/run-automation-tests.sh screenshots
 ```
 
 ## 📋 Test Summary
@@ -34,24 +34,24 @@ mvn spring-boot:run
 
 ```bash
 # Run specific test categories
-./run-automation-tests.sh api          # API tests only
-./run-automation-tests.sh ui           # UI tests only
-./run-automation-tests.sh integration  # Integration tests only
+./src/test/scripts/run-automation-tests.sh api          # API tests only
+./src/test/scripts/run-automation-tests.sh ui           # UI tests only
+./src/test/scripts/run-automation-tests.sh integration  # Integration tests only
 
 # Run with visible browser (for debugging)
-TEST_HEADLESS=false ./run-automation-tests.sh ui
+TEST_HEADLESS=false ./src/test/scripts/run-automation-tests.sh ui
 
 # View help
-./run-automation-tests.sh help
+./src/test/scripts/run-automation-tests.sh help
 ```
 
 ## 📸 Screenshot Generation
 
 Screenshots are **automatically captured** during UI test execution:
 
-1. Run UI tests: `./run-automation-tests.sh ui`
+1. Run UI tests: `./src/test/scripts/run-automation-tests.sh ui`
 2. Screenshots saved to: `test-output/screenshots/`
-3. View screenshots: `./run-automation-tests.sh screenshots`
+3. View screenshots: `./src/test/scripts/run-automation-tests.sh screenshots`
 
 Each UI test captures multiple screenshots at key interaction points.
 

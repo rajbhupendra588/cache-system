@@ -148,5 +148,16 @@ public class ClusterCoordinator {
         logger.debug("Received replication: cache={}, key={}", message.getCacheName(), message.getKey());
         cacheManager.put(message.getCacheName(), message.getKey(), message.getValue(), message.getTtl());
     }
+    
+    /**
+     * Handle incoming heartbeat message from peer.
+     */
+    public void handleHeartbeat(HeartbeatMessage message) {
+        logger.debug("Received heartbeat from node: {}", message.getNodeId());
+        // Mark peer as active - need to find peer address from nodeId
+        // For now, we'll use nodeId as address (assuming format matches)
+        String peerAddress = message.getNodeId();
+        membership.recordHeartbeatResponse(peerAddress);
+    }
 }
 

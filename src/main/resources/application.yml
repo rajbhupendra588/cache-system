@@ -30,7 +30,7 @@ cache:
       discovery:
         type: static  # static, multicast
         static:
-          peers: localhost:8081,localhost:8082
+          peers: localhost:9090,localhost:9090  # Communication port, not HTTP port
         multicast:
           group: 230.0.0.1
           port: 5432

@@ -112,7 +112,7 @@ test-output/screenshots/
 
 To view all screenshots:
 ```bash
-./run-automation-tests.sh screenshots
+./src/test/scripts/run-automation-tests.sh screenshots
 # OR
 open test-output/screenshots/
 ```

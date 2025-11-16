@@ -26,6 +26,10 @@
 | **🧪 Testing** | [testing/TEST_QUICK_START.md](testing/TEST_QUICK_START.md) | Testing quick start | 10 min |
 | **🧪 Testing** | [testing/AUTOMATION_TESTING.md](testing/AUTOMATION_TESTING.md) | Automation testing guide | 30 min |
 | **🧪 Testing** | [testing/TEST_EXECUTION_REPORT.md](testing/TEST_EXECUTION_REPORT.md) | Test execution report | 10 min |
+| **🧪 Testing** | [testing/MULTI_NODE_10_TEST_GUIDE.md](testing/MULTI_NODE_10_TEST_GUIDE.md) | Multi-node 10 test guide | 15 min |
+| **🧪 Testing** | [testing/MULTI_NODE_10_TEST_SUMMARY.md](testing/MULTI_NODE_10_TEST_SUMMARY.md) | Multi-node 10 test summary | 10 min |
+| **🧪 Testing** | [testing/MULTI_NODE_TEST_RESULTS.md](testing/MULTI_NODE_TEST_RESULTS.md) | Multi-node test results | 10 min |
+| **🧪 Testing** | [testing/SCREENSHOT_FORMAT_EXPLANATION.md](testing/SCREENSHOT_FORMAT_EXPLANATION.md) | Screenshot format explanation | 5 min |
 | **📖 Reference** | [DOCUMENTATION_BEST_PRACTICES.md](DOCUMENTATION_BEST_PRACTICES.md) | Industry standards comparison | 20 min |
 
 ---
@@ -323,13 +327,13 @@
 
 ## 📊 Documentation Statistics
 
-- **Total Documents:** 18
+- **Total Documents:** 22
 - **Getting Started:** 2 documents
 - **Development:** 3 documents
 - **Production:** 2 documents
 - **Reference:** 4 documents (including best practices)
 - **Maintenance:** 3 documents
-- **Testing:** 3 documents
+- **Testing:** 7 documents
 
 ---
 

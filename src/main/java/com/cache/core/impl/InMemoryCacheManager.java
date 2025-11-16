@@ -404,15 +404,15 @@ public class InMemoryCacheManager {
      * @param cacheName cache name for metrics
      */
     private void recordEviction(LocalCacheMetrics localMetrics, String cacheName) {
-        if (localMetrics != null) {
-            localMetrics.recordEviction();
-        }
-        if (cacheMetrics != null) {
+            if (localMetrics != null) {
+                localMetrics.recordEviction();
+            }
+            if (cacheMetrics != null) {
             CacheConfiguration config = getConfiguration(cacheName);
-            cacheMetrics.recordEviction(cacheName, config.getEvictionPolicy().name());
+                cacheMetrics.recordEviction(cacheName, config.getEvictionPolicy().name());
+            }
         }
-    }
-
+        
     /**
      * Estimates memory usage of the cache using JOL (Java Object Layout).
      * 
@@ -455,7 +455,7 @@ public class InMemoryCacheManager {
         } catch (Exception e) {
             logger.debug("JOL measurement failed, falling back to estimation", e);
             return estimateMemoryUsageFallback(cache);
-        }
+    }
     }
     
     /**

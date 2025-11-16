@@ -1,0 +1,120 @@
+=== Node 6 - initial_state ===
+Captured: Sun Nov 16 19:29:03 IST 2025
+
+=== Cluster Status ===
+{
+    "activePeers": [
+        "localhost:9090",
+        "localhost:9092",
+        "localhost:9091",
+        "localhost:9094",
+        "localhost:9093",
+        "localhost:9096",
+        "localhost:9095",
+        "localhost:9098",
+        "localhost:9097",
+        "localhost:9099"
+    ],
+    "knownPeers": [
+        "localhost:9090",
+        "localhost:9092",
+        "localhost:9091",
+        "localhost:9094",
+        "localhost:9093",
+        "localhost:9096",
+        "localhost:9095",
+        "localhost:9098",
+        "localhost:9097",
+        "localhost:9099"
+    ],
+    "activePeerCount": 10,
+    "lastHeartbeatTimes": {
+        "localhost:9090": 1763301541268,
+        "localhost:9092": 1763301541269,
+        "node-1": 1763301541171,
+        "localhost:9091": 1763301541269,
+        "node-2": 1763301541277,
+        "localhost:9094": 1763301541270,
+        "node-3": 1763301543303,
+        "localhost:9093": 1763301541270,
+        "node-4": 1763301543479,
+        "localhost:9096": 1763301543271,
+        "node-5": 1763301543303,
+        "localhost:9095": 1763301541272,
+        "node-6": 1763301541272,
+        "localhost:9098": 1763301543272,
+        "node-7": 1763301543308,
+        "localhost:9097": 1763301541272,
+        "node-8": 1763301541475,
+        "node-10": 1763301541347,
+        "node-9": 1763301543404,
+        "localhost:9099": 1763301541273
+    },
+    "peerHealth": {
+        "localhost:9090": true,
+        "localhost:9092": true,
+        "localhost:9091": true,
+        "localhost:9094": true,
+        "localhost:9093": true,
+        "localhost:9096": true,
+        "localhost:9095": true,
+        "localhost:9098": true,
+        "localhost:9097": true,
+        "localhost:9099": true
+    },
+    "consecutiveFailures": {
+        "localhost:9090": 1,
+        "localhost:9092": 1,
+        "node-1": 0,
+        "localhost:9091": 1,
+        "node-2": 0,
+        "localhost:9094": 1,
+        "node-3": 0,
+        "localhost:9093": 1,
+        "node-4": 0,
+        "localhost:9096": 0,
+        "node-5": 0,
+        "localhost:9095": 1,
+        "node-6": 0,
+        "localhost:9098": 0,
+        "node-7": 0,
+        "localhost:9097": 1,
+        "node-8": 0,
+        "node-10": 0,
+        "node-9": 0,
+        "localhost:9099": 1
+    },
+    "nodeId": "node-6"
+}
+
+=== Health Status ===
+{
+    "status": "UP",
+    "components": {
+        "diskSpace": {
+            "status": "UP",
+            "details": {
+                "total": 494384795648,
+                "free": 250744143872,
+                "threshold": 10485760,
+                "path": "/Users/bhupendra/Documents/Projects/cache-system/.",
+                "exists": true
+            }
+        },
+        "ping": {
+            "status": "UP"
+        }
+    }
+}
+
+=== Cache Statistics ===
+{
+    "cacheName": "test",
+    "hits": 0,
+    "misses": 0,
+    "evictions": 0,
+    "size": 0,
+    "memoryBytes": 0,
+    "hitRatio": 0.0,
+    "lastUpdated": "2025-11-16T13:59:03.778290Z"
+}

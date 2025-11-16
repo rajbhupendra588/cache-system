@@ -78,6 +78,13 @@
                             <div class="stat-value" id="total-memory">-</div>
                         </div>
                     </div>
+                    <div class="stat-card" onclick="switchView('cluster')" style="cursor: pointer;">
+                        <div class="stat-icon">🌐</div>
+                        <div class="stat-content">
+                            <div class="stat-label">Cluster Nodes</div>
+                            <div class="stat-value" id="cluster-nodes-quick">-</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="cache-list-section">
@@ -124,19 +131,81 @@
             <!-- Cluster View -->
             <div id="cluster-view" class="view">
                 <header class="view-header">
-                    <h2>Cluster Status</h2>
-                    <button class="btn-refresh" onclick="refreshCluster()">🔄 Refresh</button>
+                    <h2>Cluster Management</h2>
+                    <div class="header-actions">
+                        <label class="auto-refresh-toggle">
+                            <input type="checkbox" id="cluster-auto-refresh" checked onchange="toggleClusterAutoRefresh()">
+                            <span>Auto-refresh (5s)</span>
+                        </label>
+                        <button class="btn-refresh" onclick="refreshCluster()">🔄 Refresh</button>
+                    </div>
                 </header>
-                <div id="cluster-content" class="cluster-content"></div>
+                
+                <div class="cluster-overview">
+                    <div class="cluster-stats-grid">
+                        <div class="cluster-stat-card">
+                            <div class="cluster-stat-icon">🖥️</div>
+                            <div class="cluster-stat-content">
+                                <div class="cluster-stat-label">Current Node</div>
+                                <div class="cluster-stat-value" id="current-node-id">-</div>
+                            </div>
+                        </div>
+                        <div class="cluster-stat-card">
+                            <div class="cluster-stat-icon">✅</div>
+                            <div class="cluster-stat-content">
+                                <div class="cluster-stat-label">Active Nodes</div>
+                                <div class="cluster-stat-value" id="active-nodes-count">-</div>
+                            </div>
+                        </div>
+                        <div class="cluster-stat-card">
+                            <div class="cluster-stat-icon">📡</div>
+                            <div class="cluster-stat-content">
+                                <div class="cluster-stat-label">Known Nodes</div>
+                                <div class="cluster-stat-value" id="known-nodes-count">-</div>
+                            </div>
+                        </div>
+                        <div class="cluster-stat-card">
+                            <div class="cluster-stat-icon">💚</div>
+                            <div class="cluster-stat-content">
+                                <div class="cluster-stat-label">Healthy Nodes</div>
+                                <div class="cluster-stat-value" id="healthy-nodes-count">-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cluster-main-content">
+                    <div class="cluster-topology-section">
+                        <h3>Cluster Topology</h3>
+                        <div id="cluster-topology" class="cluster-topology"></div>
+                    </div>
+                    
+                    <div class="cluster-details-section">
+                        <h3>Node Details</h3>
+                        <div id="cluster-nodes-list" class="cluster-nodes-list"></div>
+                    </div>
+                </div>
             </div>
 
             <!-- Metrics View -->
             <div id="metrics-view" class="view">
                 <header class="view-header">
                     <h2>Performance Metrics</h2>
-                    <button class="btn-refresh" onclick="refreshMetrics()">🔄 Refresh</button>
+                    <div class="header-actions">
+                        <select id="metrics-cache-filter" class="cache-selector" onchange="filterMetricsByCache()">
+                            <option value="">All Caches</option>
+                        </select>
+                        <button class="btn-refresh" onclick="refreshMetrics()">🔄 Refresh</button>
+                    </div>
                 </header>
-                <div id="metrics-content" class="metrics-content"></div>
+                
+                <div class="metrics-overview">
+                    <div class="metrics-summary-grid" id="metrics-summary"></div>
+                </div>
+                
+                <div class="metrics-main-content">
+                    <div id="metrics-content" class="metrics-content"></div>
+                </div>
             </div>
         </main>
     </div>

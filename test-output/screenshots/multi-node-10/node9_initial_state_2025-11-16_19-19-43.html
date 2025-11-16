@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Node 9 - initial_state</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        h1 { color: #333; }
+        h2 { color: #666; border-bottom: 2px solid #4CAF50; padding-bottom: 10px; }
+        pre { background: #f4f4f4; padding: 15px; border-radius: 4px; overflow-x: auto; }
+        .timestamp { color: #999; font-size: 12px; }
+        .status { padding: 5px 10px; border-radius: 4px; display: inline-block; }
+        .status.up { background: #4CAF50; color: white; }
+        .status.down { background: #f44336; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Node 9 - initial_state</h1>
+        <p class="timestamp">Captured: Sun Nov 16 19:19:43 IST 2025</p>
+        
+        <h2>Cluster Status</h2>
+        <pre>{
+    "activePeers": [
+        "localhost:9092",
+        "localhost:9091",
+        "localhost:9094",
+        "localhost:9093",
+        "localhost:9096",
+        "localhost:9095",
+        "localhost:9098",
+        "localhost:9097",
+        "localhost:9099"
+    ],
+    "knownPeers": [
+        "localhost:9090",
+        "localhost:9092",
+        "localhost:9091",
+        "localhost:9094",
+        "localhost:9093",
+        "localhost:9096",
+        "localhost:9095",
+        "localhost:9098",
+        "localhost:9097",
+        "localhost:9099"
+    ],
+    "activePeerCount": 9,
+    "lastHeartbeatTimes": {
+        "localhost:9090": 1763300970716,
+        "localhost:9092": 1763300980722,
+        "localhost:9091": 1763300980722,
+        "node-2": 1763300980311,
+        "localhost:9094": 1763300980723,
+        "node-3": 1763300980212,
+        "localhost:9093": 1763300980723,
+        "node-4": 1763300980259,
+        "localhost:9096": 1763300980723,
+        "node-5": 1763300980421,
+        "localhost:9095": 1763300980723,
+        "node-6": 1763300980278,
+        "localhost:9098": 1763300980724,
+        "node-7": 1763300980246,
+        "localhost:9097": 1763300980724,
+        "node-8": 1763300980266,
+        "node-10": 1763300982405,
+        "node-9": 1763300980724,
+        "localhost:9099": 1763300980724
+    },
+    "peerHealth": {
+        "localhost:9090": false,
+        "localhost:9092": true,
+        "localhost:9091": true,
+        "localhost:9094": true,
+        "localhost:9093": true,
+        "localhost:9096": true,
+        "localhost:9095": true,
+        "localhost:9098": true,
+        "localhost:9097": true,
+        "localhost:9099": true
+    },
+    "consecutiveFailures": {
+        "localhost:9090": 6,
+        "localhost:9092": 1,
+        "localhost:9091": 1,
+        "node-2": 0,
+        "localhost:9094": 1,
+        "node-3": 0,
+        "localhost:9093": 1,
+        "node-4": 0,
+        "localhost:9096": 1,
+        "node-5": 0,
+        "localhost:9095": 1,
+        "node-6": 0,
+        "localhost:9098": 1,
+        "node-7": 0,
+        "localhost:9097": 1,
+        "node-8": 0,
+        "node-10": 0,
+        "node-9": 0,
+        "localhost:9099": 1
+    },
+    "nodeId": "node-9"
+}</pre>
+        
+        <h2>Health Status</h2>
+        <pre>{
+    "status": "UP",
+    "components": {
+        "diskSpace": {
+            "status": "UP",
+            "details": {
+                "total": 494384795648,
+                "free": 251803254784,
+                "threshold": 10485760,
+                "path": "/Users/bhupendra/Documents/Projects/cache-system/.",
+                "exists": true
+            }
+        },
+        "ping": {
+            "status": "UP"
+        }
+    }
+}</pre>
+        
+        <h2>Cache Statistics</h2>
+        <pre>{
+    "cacheName": "test",
+    "hits": 0,
+    "misses": 0,
+    "evictions": 0,
+    "size": 0,
+    "memoryBytes": 0,
+    "hitRatio": 0.0,
+    "lastUpdated": "2025-11-16T13:49:43.325153Z"
+}</pre>
+    </div>
+</body>
+</html>

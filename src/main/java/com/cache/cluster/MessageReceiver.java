@@ -94,6 +94,10 @@ public class MessageReceiver {
                 ReplicationMessage message = SerializationUtil.deserialize(messageBytes, ReplicationMessage.class);
                 clusterCoordinator.handleReplication(message);
                 out.writeUTF("OK");
+            } else if ("HEARTBEAT".equals(messageType)) {
+                HeartbeatMessage message = SerializationUtil.deserialize(messageBytes, HeartbeatMessage.class);
+                clusterCoordinator.handleHeartbeat(message);
+                out.writeUTF("OK");
             } else {
                 logger.warn("Unknown message type: {}", messageType);
                 out.writeUTF("ERROR");

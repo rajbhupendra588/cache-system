@@ -256,13 +256,7 @@ mvn test
 3. Reduce TTL to expire entries faster
 4. Monitor `customcache.memory.bytes{cache}`
 
-## Roadmap
 
-- [ ] Phase 1: Advanced eviction policies (LFU)
-- [ ] Phase 2: Write-behind persistence adapter
-- [ ] Phase 3: Consistent hashing and rebalancing
-- [ ] Phase 4: Admin UI dashboard
-- [ ] Phase 5: TLS for inter-node communication
 
 ## License
 

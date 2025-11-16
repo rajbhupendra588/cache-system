@@ -88,18 +88,18 @@ The easiest way to run tests is using the provided script:
 
 ```bash
 # Run all tests
-./run-automation-tests.sh all
+./src/test/scripts/run-automation-tests.sh all
 
 # Run specific test categories
-./run-automation-tests.sh api
-./run-automation-tests.sh ui
-./run-automation-tests.sh integration
+./src/test/scripts/run-automation-tests.sh api
+./src/test/scripts/run-automation-tests.sh ui
+./src/test/scripts/run-automation-tests.sh integration
 
 # View screenshots
-./run-automation-tests.sh screenshots
+./src/test/scripts/run-automation-tests.sh screenshots
 
 # Run with visible browser (for debugging)
-TEST_HEADLESS=false ./run-automation-tests.sh ui
+TEST_HEADLESS=false ./src/test/scripts/run-automation-tests.sh ui
 ```
 
 ### Run All Tests with Maven
@@ -207,7 +207,7 @@ mvn test-compile exec:java -Dexec.mainClass="com.cache.automation.TestRunner"
 
 2. **Run UI tests** (in another terminal):
    ```bash
-   ./run-automation-tests.sh ui
+   ./src/test/scripts/run-automation-tests.sh ui
    # OR
    mvn test -Dtest=DashboardUITest
    ```
@@ -263,7 +263,7 @@ test-output/screenshots/
 
 ```bash
 # Using the test script (automatically opens directory)
-./run-automation-tests.sh screenshots
+./src/test/scripts/run-automation-tests.sh screenshots
 ```
 
 **Manual viewing**:

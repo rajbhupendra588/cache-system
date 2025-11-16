@@ -132,6 +132,22 @@ public class MessageSender {
     }
 
     /**
+     * Sends a heartbeat message to a peer node.
+     * Used for health monitoring and connectivity verification.
+     * 
+     * @param peerAddress the peer address (host:port)
+     * @param message the heartbeat message
+     * @throws ClusterCommunicationException if the heartbeat cannot be sent
+     */
+    public void sendHeartbeat(String peerAddress, HeartbeatMessage message) {
+        try {
+            sendMessage(peerAddress, "HEARTBEAT", message);
+        } catch (Exception e) {
+            throw new ClusterCommunicationException(peerAddress, "send heartbeat", e);
+        }
+    }
+
+    /**
      * Sends a message to a peer using connection pooling.
      * 
      * <p>This method reuses existing connections when possible, creating new ones only
@@ -190,8 +206,8 @@ public class MessageSender {
      */
     private PooledConnection createConnection(String host, int port) throws IOException {
         Socket socket = new Socket();
-        socket.connect(new InetSocketAddress(host, port), connectTimeoutMs);
-        socket.setSoTimeout(socketTimeoutMs);
+            socket.connect(new InetSocketAddress(host, port), connectTimeoutMs);
+            socket.setSoTimeout(socketTimeoutMs);
         socket.setKeepAlive(true); // Enable TCP keep-alive
         logger.debug("Created new connection to {}:{}", host, port);
         return new PooledConnection(socket, System.currentTimeMillis());
@@ -230,30 +246,30 @@ public class MessageSender {
      * @throws IOException if the message cannot be sent
      */
     private void sendMessageOnSocket(Socket socket, String messageType, Object message, String peerAddress) throws IOException {
-        // Serialize message using Kryo
-        byte[] messageBytes = SerializationUtil.serialize(message);
-        byte[] typeBytes = messageType.getBytes("UTF-8");
-        
+            // Serialize message using Kryo
+            byte[] messageBytes = SerializationUtil.serialize(message);
+            byte[] typeBytes = messageType.getBytes("UTF-8");
+            
         DataOutputStream out = new DataOutputStream(socket.getOutputStream());
         DataInputStream in = new DataInputStream(socket.getInputStream());
-        
+                
         try {
-            // Send message type length and type
-            out.writeInt(typeBytes.length);
-            out.write(typeBytes);
-            
-            // Send message length and message
-            out.writeInt(messageBytes.length);
-            out.write(messageBytes);
-            out.flush();
-            
-            // Wait for acknowledgment
-            String ack = in.readUTF();
-            if (!"OK".equals(ack)) {
-                throw new IOException("Received error acknowledgment: " + ack);
-            }
-            
-            logger.debug("Successfully sent {} to {}", messageType, peerAddress);
+                // Send message type length and type
+                out.writeInt(typeBytes.length);
+                out.write(typeBytes);
+                
+                // Send message length and message
+                out.writeInt(messageBytes.length);
+                out.write(messageBytes);
+                out.flush();
+                
+                // Wait for acknowledgment
+                String ack = in.readUTF();
+                if (!"OK".equals(ack)) {
+                    throw new IOException("Received error acknowledgment: " + ack);
+                }
+                
+                logger.debug("Successfully sent {} to {}", messageType, peerAddress);
         } catch (SocketTimeoutException e) {
             logger.warn("Timeout sending {} to {}: {}", messageType, peerAddress, e.getMessage());
             throw e;
@@ -269,13 +285,13 @@ public class MessageSender {
      * @param socket the socket to close
      */
     private void closeConnection(Socket socket) {
-        if (socket != null && !socket.isClosed()) {
-            try {
-                socket.close();
-            } catch (IOException e) {
-                logger.debug("Error closing socket", e);
+            if (socket != null && !socket.isClosed()) {
+                try {
+                    socket.close();
+                } catch (IOException e) {
+                    logger.debug("Error closing socket", e);
+                }
             }
-        }
     }
     
     /**

@@ -63,7 +63,7 @@ public class CacheSystemConfiguration {
     }
 
     @Bean
-    public ClusterMembership clusterMembership(CacheSystemProperties properties) {
+    public ClusterMembership clusterMembership(CacheSystemProperties properties, MessageSender messageSender) {
         String nodeId = properties.getCluster().getNodeId();
         if (nodeId == null || nodeId.isEmpty()) {
             nodeId = "node-" + System.currentTimeMillis();
@@ -77,6 +77,10 @@ public class CacheSystemConfiguration {
                 for (String peer : peers) {
                     String trimmed = peer.trim();
                     if (!trimmed.isEmpty() && !trimmed.equals(nodeId)) {
+                        // Ensure peer address includes communication port if not specified
+                        if (!trimmed.contains(":")) {
+                            trimmed = trimmed + ":" + properties.getCluster().getCommunication().getPort();
+                        }
                         initialPeers.add(trimmed);
                     }
                 }
@@ -86,7 +90,7 @@ public class CacheSystemConfiguration {
         long heartbeatInterval = properties.getCluster().getHeartbeat().getIntervalMs();
         long heartbeatTimeout = properties.getCluster().getHeartbeat().getTimeoutMs();
         
-        return new ClusterMembership(nodeId, initialPeers, heartbeatInterval, heartbeatTimeout);
+        return new ClusterMembership(nodeId, initialPeers, heartbeatInterval, heartbeatTimeout, messageSender);
     }
 
     @Bean
